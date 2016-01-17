@@ -9,6 +9,8 @@ To run the app and the test suite, you simply need to open index.html with your 
 
 ###Test Suite
 
+The test suite can be found under jasmine/spec/feedreader.js
+
 I wrote the following tests:
 
 * RSS Feeds has a defined URL
