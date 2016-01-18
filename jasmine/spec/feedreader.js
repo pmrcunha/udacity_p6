@@ -89,7 +89,7 @@ $(function() {
         beforeEach(function(done) {
             $('.feed').empty();
             loadFeed(0, function() {
-                feedBefore = $('.feed');
+                feedBefore = $('.feed').html();
                 done();
             });
         });
@@ -99,7 +99,7 @@ $(function() {
          */
         it('The content changes when a new feed is loaded by loadFeed', function(done) {
             loadFeed(1, function() {
-                feedAfter = $('.feed');
+                feedAfter = $('.feed').html();
                 expect(feedAfter).not.toBe(feedBefore);
                 done();
             });     
