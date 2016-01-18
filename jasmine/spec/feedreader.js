@@ -30,25 +30,23 @@ $(function() {
          * in the allFeeds object and ensures it has a URL defined
          * and that the URL is not empty.
          */
-         it('has a defined URL', function() {
-            for(i=0; i< allFeeds.length; i++) {
+        it('has a defined URL', function() {
+            for(var i=0, len=allFeeds.length; i< len; i++) {
                 var feed = allFeeds[i];
-                expect(feed.url).toBeDefined();
                 expect(feed.url).toBeTruthy();
             }
-         });
+        });
 
         /* Test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
-         it('has a defined name', function() {
-            for(i=0; i< allFeeds.length; i++) {
+        it('has a defined name', function() {
+            for(var i=0, len=allFeeds.length; i< len; i++) {
                 var feed = allFeeds[i];
-                expect(feed.name).toBeDefined();
                 expect(feed.name).toBeTruthy();
             }
-         });
+        });
     });
 
     /* Test suite for the menu element */
@@ -74,28 +72,25 @@ $(function() {
 
     describe('Initial Entries', function() {
         beforeEach(function(done) {
-            loadFeed(0, function() {
-                done();
-            });
+            loadFeed(0, done);
         });
         /* Test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
          * loadFeed() is asynchronous.
          */
-        it('There is at least one .entry in the .feed container, when loadFeed returns', function(done) {
+        it('There is at least one .entry in the .feed container, when loadFeed returns', function() {
             expect($('.feed .entry').length).toBeGreaterThan(0);
-            done();
         });
     });
 
     describe('New Feed Selection', function() {
-        var valuesBefore, valuesAfter;
+        var feedBefore, feedAfter;
         beforeEach(function(done) {
             $('.feed').empty();
             loadFeed(0, function() {
-                    valuesBefore = $('.feed');
-                    done();
+                feedBefore = $('.feed');
+                done();
             });
         });
 
@@ -104,10 +99,10 @@ $(function() {
          */
         it('The content changes when a new feed is loaded by loadFeed', function(done) {
             loadFeed(1, function() {
-                valuesAfter = $('.feed');
-            })
-            expect(valuesAfter).not.toBe(valuesBefore);
-            done();
-         });
+                feedAfter = $('.feed');
+                expect(feedAfter).not.toBe(feedBefore);
+                done();
+            });     
+        });
     });
 }());
