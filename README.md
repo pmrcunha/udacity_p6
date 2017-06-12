@@ -1,5 +1,7 @@
 # Udacity FEND - P6: Feed Reader Testing
 
+_NOTE: The asynchronous tests will fail, because Google Feeds no longer exists._
+
 This project consisted in completing the test suite for a web-based application that reads RSS feeds.
 The testing framework used is Jasmine.
 
